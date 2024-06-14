@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Courses</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+       body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+   
+}
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+.navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            padding: 20px;
+            font-size: medium;
+        }
+
+        .navbar img {
+            height: 80px;
+            margin-right: 20px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .navbar ul li {
+            margin-right: 20px;
+        }
+
+        .navbar ul li a {
+            font-size: large;
+            color: rgb(10, 10, 10);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            color: #007bff;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #e6eaee;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(216, 203, 203, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #c5d3e3;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            color: #007bff;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                align-items: center; 
+            }
+
+            .navbar ul.show {
+                display: flex;
+            }
+
+            .navbar ul li {
+                width: 100%;
+                margin: 10px 0;
+                text-align: center; 
+            }
+
+            .navbar ul li a {
+                width: 100%;
+                padding: 10px;
+                display: inline-block;
+            }
+
+            .menu-icon {
+                display: block;
+                color: black;
+                margin-left: auto;
+            }
+        }
+
+main {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+
+.courses-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.course {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
+    flex-basis: calc(33.333% - 40px);
+    box-sizing: border-box;
+}
+
+.course:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+/* .course:hover ~ .course {
+    filter: blur(5px);
+}
+
+.courses-container:hover .course:not(:hover) {
+    filter: blur(5px);
+} */
+
+.course-image img {
+    width: 80%;
+    border-radius: 10px;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.course p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    color: #616161;
+    font-size: 14px;
+}
+
+.course p i {
+    margin-right: 5px;
+    color: #28a745;
+}
+
+.enroll-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #28a745;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 14px;
+}
+
+.enroll-btn:hover {
+    background-color: #218838;
+}
+.footer {
+            background: rgba(193, 235, 235, 0.664);
+            padding: 5px;
+            color: #343a40;
+        }
+
+        .footer .containers {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer .rows {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .footer .col-md-6, .footer .col-lg-3 {
+            padding: 25px;
+        }
+
+        .footer h2, .footer h5 {
+            color: #343a40;
+            margin-bottom: 10px;
+        }
+
+        .footer h2 i, .footer h5 {
+            color: #007bff;
+        }
+
+        .footer .follows p {
+            margin-bottom: 10px;
+        }
+
+        .footer .follows span {
+            margin-right: 10px;
+        }
+
+        .footer .follows a {
+            color: #343a40;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .footer .follows a:hover {
+            color: #007bff;
+        }
+
+        .footer .link__list {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .footer .link__item {
+            background: none;
+            padding: 5px 0;
+            border: none;
+        }
+
+        .footer .link__item a {
+            color: #343a40;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer .link__item a:hover {
+            color: #007bff;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 767px) {
+            .footer .col-md-6 {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+@media (max-width: 767px) {
+    .navbar img {
+        height: 60px; 
+        margin-right: 10px; 
+    }
+
+    .navbar ul li {
+        margin-right: 10px; 
+    }
+
+    .navbar ul li a {
+        font-size: medium; 
+    }
+
+    .navbar {
+        padding: 10px; 
+    }
+
+    main {
+        padding: 20px 10px; 
+    }
+
+    .courses-container {
+        gap: 10px; 
+    }
+
+    .course {
+        flex-basis: calc(50% - 20px); 
+    }
+
+    .course-image img {
+        width: 100%; 
+    }
+
+    h4 {
+        font-size: 16px; 
+    }
+
+    .course p {
+        font-size: 12px; 
+    }
+
+    .enroll-btn {
+        font-size: 12px; 
+    }
+
+    .footer .containers {
+        padding: 10px;
+    }
+
+    .footer .col-md-6 {
+        width: 100%; 
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img class="logo" src="logo.png" alt="Logo">
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <ul id="navbar-menu">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="mnsaboutus.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="mns_services.html"><i class="fas fa-cogs"></i> Services</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn"><i class="fas fa-briefcase"></i> Careers</a>
+                <div class="dropdown-content">
+                    <a href="jobseeker.html"><i class="fas fa-user"></i> Job Seeker</a>
+                    <a href="mnsemployer.html"><i class="fas fa-building"></i> Employer</a>
+                </div>
+            </li>
+            <li><a href="Admissions.html"><i class="fas fa-university"></i> Admissions</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+            <li><a href="register.html"><i class="fas fa-user-plus"></i> Register Now</a></li>
+        </ul>
+    </div>
+
+
+    <script>
+        function toggleMenu() {
+            const navbarMenu = document.getElementById('navbar-menu');
+            navbarMenu.classList.toggle('show');
+        }
+    </script>
+    <main>
+        <h2>Our Popular Courses</h2>
+        <div class="courses-container">
+            <div class="course">
+                <div class="course-image">
+                    <img src="1.png" alt="Cybersecurity">
+                </div>
+                <h4>Cybersecurity</h4>
+                <p><i class="fas fa-book"></i> 12 Lessons</p>
+                <p><i class="fas fa-user-friends"></i> 12.5K</p>
+                <p><i class="fas fa-star"></i> 5.9K</p>
+                <a href="Register.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            
+            <div class="course">
+                <div class="course-image">
+                    <img src="2.png" alt="AWS">
+                </div>
+                <h4>AWS</h4>
+                <p><i class="fas fa-book"></i> 12 Lessons</p>
+                <p><i class="fas fa-user-friends"></i> 12.5K</p>
+                <p><i class="fas fa-star"></i> 5.9K</p>
+                <a href="Register.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            
+            <div class="course">
+                <div class="course-image">
+                    <img src="3.png" alt="Java">
+                </div>
+                <h4>Java</h4>
+                <p><i class="fas fa-book"></i> 12 Lessons</p>
+                <p><i class="fas fa-user-friends"></i> 12.5K</p>
+                <p><i class="fas fa-star"></i> 5.9K</p>
+                <a href="Register.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course">
+                <div class="course-image">
+                    <img src="4.png" alt="Python">
+                </div>
+                <h4>Python</h4>
+                <p><i class="fas fa-book"></i> 12 Lessons</p>
+                <p><i class="fas fa-user-friends"></i> 12.5K</p>
+                <p><i class="fas fa-star"></i> 5.9K</p>
+                <a href="Register.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course">
+                <div class="course-image">
+                    <img src="5.png" alt="Salesforce">
+                </div>
+                <h4>Salesforce</h4>
+                <p><i class="fas fa-book"></i> 12 Lessons</p>
+                <p><i class="fas fa-user-friends"></i> 12.5K</p>
+                <p><i class="fas fa-star"></i> 5.9K</p>
+                <a href="Register.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course">
+                <div class="course-image">
+                    <img src="6.png" alt="PowerBI">
+                </div>
+                <h4>PowerBI</h4>
+                <p><i class="fas fa-book"></i> 12 Lessons</p>
+                <p><i class="fas fa-user-friends"></i> 12.5K</p>
+                <p><i class="fas fa-star"></i> 5.9K</p>
+                <a href="Register.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course">
+                <div class="course-image">
+                    <img src="7.png" alt="Blockchain">
+                </div>
+                <h4>Blockchain</h4>
+                <p><i class="fas fa-book"></i> 12 Lessons</p>
+                <p><i class="fas fa-user-friends"></i> 12.5K</p>
+                <p><i class="fas fa-star"></i> 5.9K</p>
+                <a href="Register.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course">
+                <div class="course-image">
+                    <img src="8.png" alt="Testing">
+                </div>
+                <h4>Testing</h4>
+                <p><i class="fas fa-book"></i> 12 Lessons</p>
+                <p><i class="fas fa-user-friends"></i> 12.5K</p>
+                <p><i class="fas fa-star"></i> 5.9K</p>
+                <a href="Register.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course">
+                <div class="course-image">
+                    <img src="9.png" alt=".Net">
+                </div>
+                <h4>.Net</h4>
+                <p><i class="fas fa-book"></i> 12 Lessons</p>
+                <p><i class="fas fa-user-friends"></i> 12.5K</p>
+                <p><i class="fas fa-star"></i> 5.9K</p>
+                <a href="Register.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course">
+                <div class="course-image">
+                    <img src="10.png" alt="AngularJs">
+                </div>
+                <h4>AngularJs</h4>
+                <p><i class="fas fa-book"></i> 12 Lessons</p>
+                <p><i class="fas fa-user-friends"></i> 12.5K</p>
+                <p><i class="fas fa-star"></i> 5.9K</p>
+                <a href="Register.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course">
+                <div class="course-image">
+                    <img src="11.png" alt="NodeJs">
+                </div>
+                <h4>NodeJs</h4>
+                <p><i class="fas fa-book"></i> 12 Lessons</p>
+                <p><i class="fas fa-user-friends"></i> 12.5K</p>
+                <p><i class="fas fa-star"></i> 5.9K</p>
+                <a href="Register.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course">
+                <div class="course-image">
+                    <img src="12.png" alt="ReactJs">
+                </div>
+                <h4>ReactJs</h4>
+                <p><i class="fas fa-book"></i> 12 Lessons</p>
+                <p><i class="fas fa-user-friends"></i> 12.5K</p>
+                <p><i class="fas fa-star"></i> 5.9K</p>
+                <a href="Register.html" class="enroll-btn">Enroll Now</a>
+            </div>
+            <div class="course">
+                <div class="course-image">
+                    <img src="13.png" alt="Digital Marketing">
+                </div>
+                <h4>Digital Marketing</h4>
+                <p><i class="fas fa-book"></i> 12 Lessons</p>
+                <p><i class="fas fa-user-friends"></i> 12.5K</p>
+                <p><i class="fas fa-star"></i> 5.9K</p>
+                <a href="Register.html" class="enroll-btn">Enroll Now</a>
+            </div>
+           
+
+            
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="containers">
+            <div class="rows">
+                <div class="mb-4 col-md-6 col-lg-3">
+                    <h2 class="d-flex align-items-center gap-1">
+                        <i class="ri-pantone-line"></i> MNS Solutions</h2>
+                    <div class="follows">
+                        <p class="mb-0">Follow us on social media</p>
+                        <span><a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a></span>
+                        <span><a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a></span>
+                        <span><a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></span>
+                        <span><a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a></span>
+                        <span><a href="https://www.whatsapp.com"><i class="fab fa-whatsapp"></i></a></span>
+                    </div>
+                </div>
+                <div class="mb-4 col-md-6 col-lg-3">
+                    <h5 class="fw-bold">Explore</h5>
+                    <ul class="link__list list-group">
+                        <li class="border-0 ps-0 link__item list-group-item"><a href="#">Home</a></li>
+                        <li class="border-0 ps-0 link__item list-group-item"><a href="#">About US</a></li>
+                        <li class="border-0 ps-0 link__item list-group-item"><a href="#">Courses</a></li>
+                        <li class="border-0 ps-0 link__item list-group-item"><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="mb-4 col-md-6 col-lg-3">
+                    <h5 class="fw-bold">Information</h5>
+                    <ul class="link__list list-group">
+                        <li class="border-0 ps-0 link__item list-group-item"><a href="#">Privacy Policy</a></li>
+                        <li class="border-0 ps-0 link__item list-group-item"><a href="#">Membership</a></li>
+                        <li class="border-0 ps-0 link__item list-group-item"><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="fw-bold">Get in Touch</h5>
+                    <p>Address: 301, park avenue, patrika nagar, Madhapur, Hyderabad</p>
+                    <p>Telangana 500084</p>
+                    <p>Phone: +91 6305427016, +91 7981962432</p>
+                    <p>Email: Mnssolutionsceo@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

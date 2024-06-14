@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .logo {
+            height: 90%;
+        }
+        input[type="text"], textarea, input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        input[type="submit"] {
+            background-color: #758cdf;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #9284cb;
+        }
+
+        .container {
+            border-radius: 25px;
+            background-color: white;
+            padding: 10px;
+            margin-bottom: 150px;
+        }
+
+        .column {
+            float: left;
+            width: 45%;
+            margin-top: 2px;
+            padding: 25px;
+            height: 470px;
+        }
+
+        .columns {
+            float: left;
+            width: 35%;
+            height: 430px;
+            margin-top: 50px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px 0px rgb(141, 138, 138);
+        }
+
+        @media screen and (max-width: 600px) {
+            .column, .columns, input[type="submit"] {
+                width: 100%;
+                margin-top: 0;
+                padding: 10px;
+                height: auto;
+            }
+
+            .column img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .footer {
+            background: #CAF4FF;
+            padding: 5px;
+            color: #343a40;
+        }
+
+        .footer .containers {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer .rows {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .footer .col-md-6, .footer .col-lg-3 {
+            padding: 25px;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer h2, .footer h5 {
+            color: #343a40;
+            margin-bottom: 10px;
+        }
+
+        .footer h2 i, .footer h5 {
+            color: #007bff;
+        }
+
+        .footer .follows p {
+            margin-bottom: 10px;
+        }
+
+        .footer .follows span {
+            margin-right: 10px;
+        }
+
+        .footer .follows a {
+            color: #343a40;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .footer .follows a:hover {
+            color: #007bff;
+        }
+
+        .footer .link__list {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .footer .link__item {
+            background: none;
+            padding: 5px 0;
+            border: none;
+        }
+
+        .footer .link__item a {
+            color: #343a40;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer .link__item a:hover {
+            color: #007bff;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 767px) {
+            .footer .col-md-6 {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+
+        .mb-4 {
+            margin-bottom: 1.5rem !important;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            padding: 20px;
+            font-size: medium;
+        }
+
+        .navbar img {
+            height: 80px;
+            margin-right: 20px;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .navbar ul li {
+            margin-right: 20px;
+        }
+
+        .navbar ul li a {
+            font-size: large;
+            color: rgb(10, 10, 10);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            color: #007bff;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #e6eaee;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(216, 203, 203, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #c5d3e3;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            color: #007bff;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                align-items: center; 
+            }
+
+            .navbar ul.show {
+                display: flex;
+            }
+
+            .navbar ul li {
+                width: 100%;
+                margin: 10px 0;
+                text-align: center; 
+            }
+
+            .navbar ul li a {
+                width: 100%;
+                padding: 10px;
+                display: inline-block;
+            }
+
+            .menu-icon {
+                display: block;
+                color: black;
+                margin-left: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img class="logo" src="logo.png" alt="Logo">
+        <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        <ul id="navbar-menu">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="mnsaboutus.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="mns_services.html"><i class="fas fa-cogs"></i> Services</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn"><i class="fas fa-briefcase"></i> Careers</a>
+                <div class="dropdown-content">
+                    <a href="jobseeker.html"><i class="fas fa-user"></i> Job Seeker</a>
+                    <a href="mnsemployer.html"><i class="fas fa-building"></i> Employer</a>
+                </div>
+            </li>
+            <li><a href="Admissions.html"><i class="fas fa-university"></i> Admissions</a></li>
+            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+            <li><a href="register.html"><i class="fas fa-user-plus"></i> Register Now</a></li>
+        </ul>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="column">
+                    <img src="contactus.jpg" style="width: 90%;" alt="Map">
+                </div>
+                <div class="columns">
+                    <form>
+                        <div style="text-align: center;">
+                            <h2>Contact Us</h2>
+                        </div>
+                        <label for="name"><b>Name</b></label>
+                        <input type="text" id="fname" name="name" placeholder="Your name..">
+                        <label for="email"><b>Email</b></label>
+                        <input type="email" id="lname" name="email" placeholder="Your Email id..">
+                        <label for="subject"><b>Subject</b></label>
+                        <textarea id="subject" name="subject" placeholder="Write something.." style="height: 90px"></textarea>
+                        <center><input type="submit" value="Submit"></center>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="containers">
+            <div class="rows">
+                <div class="mb-4 col-md-6 col-lg-3">
+                    <h2 class="d-flex align-items-center gap-1">
+                        <i class="ri-pantone-line"></i> MNS Solutions</h2>
+                    <div class="follows">
+                        <p class="mb-0">Follow us on social media</p>
+                        <span><a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a></span>
+                        <span><a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a></span>
+                        <span><a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></span>
+                        <span><a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a></span>
+                        <span><a href="https://www.whatsapp.com"><i class="fab fa-whatsapp"></i></a></span>
+                    </div>
+                </div>
+                <div class="mb-4 col-md-6 col-lg-3">
+                    <h5 class="fw-bold">Explore</h5>
+                    <ul class="link__list list-group">
+                        <li class="border-0 ps-0 link__item list-group-item"><a href="#">Home</a></li>
+                        <li class="border-0 ps-0 link__item list-group-item"><a href="#">About US</a></li>
+                        <li class="border-0 ps-0 link__item list-group-item"><a href="#">Courses</a></li>
+                        <li class="border-0 ps-0 link__item list-group-item"><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="mb-4 col-md-6 col-lg-3">
+                    <h5 class="fw-bold">Information</h5>
+                    <ul class="link__list list-group">
+                        <li class="border-0 ps-0 link__item list-group-item"><a href="#">Privacy Policy</a></li>
+                        <li class="border-0 ps-0 link__item list-group-item"><a href="#">Membership</a></li>
+                        <li class="border-0 ps-0 link__item list-group-item"><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <h5 class="fw-bold">Get in Touch</h5>
+                    <p>Address: 301, park avenue, patrika nagar, Madhapur, Hyderabad</p>
+                    <p>Telangana 500084</p>
+                    <p>Phone: +91 6305427016, +91 7981962432</p>
+                    <p>Email: Mnssolutionsceo@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navbarMenu = document.getElementById('navbar-menu');
+            navbarMenu.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

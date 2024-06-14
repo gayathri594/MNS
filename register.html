@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Online Training Program Payment</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="logo.png" alt="Flagship Collaboration Logo" class="logo">
+            <h1>Corporate Online Training Program</h1>
+        </header>
+        <section class="program-details">
+            <p>Corporate Online Training Program with 15+ years experience (Morning & Evening Batches)</p>
+            <ul>
+                <li>Cybersecurity / AWS & Devops / Java / Python Fullstack / Salesforce / Power Bi / Blockchain / Testing / .Net / Angular js Node Js React Js / Digital Marketing</li>
+                <li>Online Live Training</li>
+                <li>Any one IT Domain +</li>
+                <li>5 Job Interviews</li>
+                <li>3 Certifications</li>
+                <li>3 Assignments</li>
+                <li>2 Internships</li>
+            </ul>
+            <p>Just ₹370 Only</p>
+            <p>Contact Us: +91 6305427016 | <a href="mailto:Mnssolutionsceo@gmail.com">Mnssolutionsceo@gmail.com</a></p>
+        </section>
+        <section class="payment-form">
+            <form id="payment-form">
+                <label for="amount">Amount</label>
+                <input type="text" id="amount" value="₹370.00" readonly>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number" required>
+
+                <label for="domain">Interested Domain</label>
+                <select id="domain" required>
+                    <option value="Cybersecurity">Cybersecurity</option>
+                    <option value="AWS & Devops">AWS & Devops</option>
+                    <option value="Java">Java</option>
+                    <option value="Python Fullstack">Python Fullstack</option>
+                    <option value="Salesforce">Salesforce</option>
+                    <option value="Power Bi">Power Bi</option>
+                    <option value="Blockchain">Blockchain</option>
+                    <option value="Testing">Testing</option>
+                    <option value=".Net">.Net</option>
+                    <option value="Angular js">Angular js</option>
+                    <option value="Node Js">Node Js</option>
+                    <option value="React Js">React Js</option>
+                    <option value="Digital Marketing">Digital Marketing</option>
+                </select>
+
+                <label for="batch">Morning or Evening Batch</label>
+                <select id="batch" required>
+                    <option value="Morning">Morning</option>
+                    <option value="Evening">Evening</option>
+                </select>
+
+                <button type="button" id="pay-button">Pay ₹370.00</button>
+            </form>
+        </section>
+        <footer>
+            <p>Terms & Conditions: You agree to share information entered on this page with Flagship Collaboration (owner of this page) and Razor pay, adhering to applicable laws.</p>
+        </footer>
+    </div>
+
+    <!-- Razorpay Payment -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        document.getElementById('pay-button').onclick = function(e) {
+            var options = {
+                "key": "YOUR_RAZORPAY_KEY_ID",
+                "amount": "37000", 
+                "currency": "INR",
+                "name": "Flagship Collaboration",
+                "description": "Corporate Online Training Program",
+                "image": "Logo.png",
+                "handler": function (response){
+                    alert("Payment successful. Payment ID: " + response.razorpay_payment_id);
+                },
+                "prefill": {
+                    "email": document.getElementById('email').value,
+                    "contact": document.getElementById('phone').value
+                },
+                "theme": {
+                    "color": "#3399cc"
+                }
+            };
+            var rzp1 = new Razorpay(options);
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+</body>
+</html>
